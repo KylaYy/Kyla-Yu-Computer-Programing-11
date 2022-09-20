@@ -7,7 +7,6 @@ import javafx.scene.control.Label;
 
 
 public class GOCController {
-
     public Label intpoolAmount;
     public Label roll1;
     public Button btnHigher;
@@ -21,78 +20,90 @@ public class GOCController {
     public int poolAmount;
     public Button btnReset;
 
-    public int randRoll(){
-        int r = (int)(Math.random()*6) + 1;
+    public GOCController() {
+    }
+
+    public int randRoll() {
+        int r = (int)(Math.random() * 6) + 1;
         return r;
     }
 
-    public void setRoll1(ActionEvent actionEvent){
-        btnRoll1.setDisable(true);
-        btnRoll2.setDisable(true);
-        int r = randRoll();
-        roll1.setText(String.valueOf(r));
-        roll1Value = r;
-
-    }
-
-    public void setRoll2(ActionEvent actionEvent) {
-        btnRoll2.setDisable(true);
-        int r = randRoll();
-        roll2.setText((String.valueOf(r)));
-        roll2Value = r;
+    public void setRoll1(ActionEvent actionEvent) {
+        this.btnRoll1.setDisable(true);
+        int r = this.randRoll();
+        this.roll1.setText(String.valueOf(r));
+        this.roll1Value = r;
     }
 
     public void Higher(ActionEvent actionEvent) {
-        HigherLower = "Higher";
-        btnHigher.setDisable(true);
-        btnLower.setDisable(true);
-        btnRoll2.setDisable(false);
+        this.HigherLower = "Higher";
+        this.btnHigher.setDisable(true);
+        this.btnLower.setDisable(true);
+        this.poolAmount = Integer.parseInt(this.intpoolAmount.getText());
+        int r = this.randRoll();
+        this.roll2.setText(String.valueOf(r));
+        this.roll2Value = r;
+        this.roll2.setText(String.valueOf(r));
+        this.roll2Value = r;
+        if (this.HigherLower.equals("Higher") && this.roll1Value < this.roll2Value) {
+            this.poolAmount += 10;
+            this.intpoolAmount.setText(String.valueOf(this.poolAmount));
+        } else {
+            this.poolAmount -= 10;
+            this.intpoolAmount.setText(String.valueOf(this.poolAmount));
+        }
+
+        if (this.poolAmount == 0) {
+            this.btnRoll1.setDisable(true);
+            this.btnRoll2.setDisable(true);
+            this.btnLower.setDisable(true);
+            this.btnHigher.setDisable(true);
+            this.btnReset.setDisable(true);
+        }
+
     }
 
     public void Lower(ActionEvent actionEvent) {
-        HigherLower = "Lower";
-        btnHigher.setDisable(true);
-        btnLower.setDisable(true);
-        btnRoll2.setDisable(false);
+        this.HigherLower = "Lower";
+        this.btnHigher.setDisable(true);
+        this.btnLower.setDisable(true);
+        this.poolAmount = Integer.parseInt(this.intpoolAmount.getText());
+        int r = this.randRoll();
+        this.roll2.setText(String.valueOf(r));
+        this.roll2Value = r;
+        this.roll2.setText(String.valueOf(r));
+        this.roll2Value = r;
+        if (this.HigherLower.equals("Lower") && this.roll1Value > this.roll2Value) {
+            this.poolAmount += 10;
+            this.intpoolAmount.setText(String.valueOf(this.poolAmount));
+        } else {
+            this.poolAmount -= 10;
+            this.intpoolAmount.setText(String.valueOf(this.poolAmount));
+        }
+
+        if (this.poolAmount == 0) {
+            this.btnRoll1.setDisable(true);
+            this.btnRoll2.setDisable(true);
+            this.btnLower.setDisable(true);
+            this.btnHigher.setDisable(true);
+            this.btnReset.setDisable(true);
+        }
+
     }
 
     public void resetGame(ActionEvent actionEvent) {
-        btnRoll1.setDisable(false);
-        btnLower.setDisable(false);
-        btnHigher.setDisable(false);
-        btnReset.setDisable(false);
-        intpoolAmount.setText(String.valueOf(100));
-
+        this.btnRoll1.setDisable(false);
+        this.btnLower.setDisable(false);
+        this.btnHigher.setDisable(false);
+        this.btnReset.setDisable(false);
+        this.intpoolAmount.setText(String.valueOf(100));
     }
 
     public void resetRolls(ActionEvent actionEvent) {
-        btnRoll1.setDisable(false);
-        btnLower.setDisable(false);
-        btnHigher.setDisable(false);
-
-        poolAmount = Integer.parseInt(intpoolAmount.getText());
-
-        if (HigherLower.equals("Higher") && (roll1Value<roll2Value)){
-            poolAmount = poolAmount +10;
-        }
-        if (HigherLower.equals("Lower") && (roll1Value>roll2Value)){
-            poolAmount = poolAmount + 10;
-        }
-        else{
-            poolAmount -= 10;
-        }
-        if (poolAmount == 0){
-            btnRoll1.setDisable(true);
-            btnRoll2.setDisable(true);
-            btnLower.setDisable(true);
-            btnHigher.setDisable(true);
-            btnReset.setDisable(true);
-        }
-        intpoolAmount.setText(String.valueOf(poolAmount));
-        roll1.setText(" ");
-        roll2.setText(" ");
-
+        this.btnRoll1.setDisable(false);
+        this.btnLower.setDisable(false);
+        this.btnHigher.setDisable(false);
+        this.roll1.setText(" ");
+        this.roll2.setText(" ");
     }
-
-
 }
