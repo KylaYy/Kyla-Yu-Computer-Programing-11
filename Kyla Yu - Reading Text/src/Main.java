@@ -7,12 +7,17 @@ public class Main {
     //Word Search
     public static void wordSearch(ArrayList<String> list, String word){
         for (String search : list){
-            search.replaceAll("," , " ");
-            search.replaceAll("\\.", " ");
+            int index = list.indexOf(search);
+            search = search.replaceAll("," , " ");
+            search = search.replaceAll("\\.", " ");
+            search = search.replaceAll("\\(", " ");
+            search = search.replaceAll("\\)", " ");
+            search = search.replaceAll(";", " ");
+            search = search.replaceAll("-", " ");
             String[] wordsOfSearch = search.split(" ");
             for (String wordTemp : wordsOfSearch){
                 if (wordTemp.equalsIgnoreCase(word)){
-                    System.out.println("The word \""+word+"\" occurs in line " + (list.indexOf(search)+1));
+                    System.out.println("The word \""+word+"\" occurs in line " + (index+1));
                 }
             }
         }
