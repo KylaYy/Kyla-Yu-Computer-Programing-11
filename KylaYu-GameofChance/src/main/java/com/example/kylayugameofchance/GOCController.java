@@ -72,11 +72,11 @@ public class GOCController {
 
         poolAmount = Integer.parseInt(intpoolAmount.getText());
 
-        if (HigherLower.equals("Higher") && (roll2Value>roll1Value)){
-            poolAmount += 10;
+        if (HigherLower.equals("Higher") && (roll1Value<roll2Value)){
+            poolAmount = poolAmount +10;
         }
         if (HigherLower.equals("Lower") && (roll1Value>roll2Value)){
-            poolAmount += 10;
+            poolAmount = poolAmount + 10;
         }
         else{
             poolAmount -= 10;
