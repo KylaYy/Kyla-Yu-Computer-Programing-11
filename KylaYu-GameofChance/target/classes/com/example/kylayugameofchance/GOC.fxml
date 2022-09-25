@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="417.0" prefWidth="377.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.kylayugameofchance.GOCController">
+   <children>
+      <HBox alignment="CENTER" prefHeight="50.0" prefWidth="377.0">
+         <children>
+            <Label prefHeight="21.0" prefWidth="79.0" text="Dice Roll" textAlignment="CENTER">
+               <font>
+                  <Font name="Times New Roman" size="19.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="0.9097387173396674" endY="0.12589073634204273">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Label>
+         </children>
+      </HBox>
+      <VBox alignment="TOP_CENTER" prefHeight="17.0" prefWidth="377.0">
+         <children>
+            <Label text="INSTRUCTIONS:" />
+         </children>
+      </VBox>
+      <VBox alignment="CENTER" prefHeight="72.0" prefWidth="357.0" spacing="5.0">
+         <children>
+            <Label text="BETS ARE $10 EACH. IF YOUR PREDICTION FOR THE SECOND" textAlignment="CENTER" />
+            <Label prefHeight="45.0" prefWidth="350.0" text="ROLL IS CORRECT, YOUR BETTING POOL INCREASES BY $10." textAlignment="CENTER" />
+            <Label text="IF IT IS INCORRECT, YOUR POOL DECREASES BY $10." textAlignment="CENTER" />
+            <Label text="THE GAME ENDS WHEN YOUR POOL AMOUNT BECOMES 0." />
+         </children>
+         <VBox.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </VBox.margin>
+      </VBox>
+      <HBox alignment="CENTER" prefHeight="38.0" prefWidth="377.0" spacing="10.0">
+         <children>
+            <Label graphicTextGap="10.0" text="Pool Amount">
+               <font>
+                  <Font name="Times New Roman" size="13.0" />
+               </font>
+            </Label>
+            <Label fx:id="intpoolAmount" graphicTextGap="10.0" text="100">
+               <font>
+                  <Font name="Times New Roman" size="23.0" />
+               </font>
+            </Label>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="46.0" prefWidth="377.0" spacing="10.0">
+         <children>
+            <Label text="Dice 1" />
+            <Button fx:id="btnRoll1" mnemonicParsing="false" onAction="#setRoll1" text="Roll" />
+            <HBox alignment="CENTER" prefHeight="46.0" prefWidth="33.0" spacing="10.0">
+               <children>
+                  <Label text="=" />
+                  <Label fx:id="roll1" text="1" />
+               </children>
+            </HBox>
+            <Label text="Dice 2" />
+            <Label text="=" />
+            <Label fx:id="roll2" text="1" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="46.0" prefWidth="377.0" spacing="10.0">
+         <children>
+            <Label text="Next Roll?" />
+            <VBox prefHeight="52.0" prefWidth="57.0">
+               <children>
+                  <Button fx:id="btnHigher" mnemonicParsing="false" onAction="#Higher" text="Higher" />
+                  <Button fx:id="btnLower" mnemonicParsing="false" onAction="#Lower" prefHeight="26.0" prefWidth="54.0" text="Lower" />
+               </children>
+               <padding>
+                  <Insets bottom="10.0" />
+               </padding>
+            </VBox>
+         </children>
+      </HBox>
+      <Button fx:id="btnReset" mnemonicParsing="false" onAction="#resetRolls" text="Reset Rolls (Submit)" />
+      <Button mnemonicParsing="false" onAction="#resetGame" text="Reset Game" />
+   </children>
+</VBox>
