@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.kylayufriendsbook.FriendsBookController">
+  <tabs>
+      <Tab text="Create Group">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Button layoutX="101.0" layoutY="113.0" mnemonicParsing="false" onAction="#createGroup" text="Create Group" />
+                  <TextField fx:id="groupName" layoutX="112.0" layoutY="77.0" promptText="Group" />
+                  <Label layoutX="42.0" layoutY="82.0" text="Group Name" />
+               </children>
+            </AnchorPane>
+        </content>
+      </Tab>
+    <Tab text="Create Friend">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="418.0" prefWidth="600.0">
+               <children>
+                  <VBox layoutX="250.0" layoutY="84.0" prefHeight="299.0" prefWidth="600.0" AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <VBox alignment="CENTER" prefHeight="42.0" prefWidth="600.0">
+                           <children>
+                              <Label text="Add Friend:">
+                                 <font>
+                                    <Font size="22.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <HBox alignment="TOP_CENTER" prefHeight="142.0" prefWidth="600.0" spacing="10.0">
+                           <children>
+                              <VBox alignment="TOP_RIGHT" prefHeight="275.0" prefWidth="134.0" spacing="10.0">
+                                 <children>
+                                    <Label text="First Name:" />
+                                    <Label text="Last Name:" />
+                                    <Label text="Email Address:" />
+                                    <Label text="Phone Number:" />
+                                    <Label text="Address:" />
+                                    <Label text="Favourite Colour:" />
+                                    <Label text="Group:" />
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="275.0" prefWidth="145.0">
+                                 <children>
+                                    <TextField fx:id="firstName" prefHeight="26.0" prefWidth="115.0" promptText="First Name" />
+                                    <TextField fx:id="lastName" promptText="Last Name" />
+                                    <TextField fx:id="email" promptText="email@gmail.com" />
+                                    <TextField fx:id="phoneNumber" promptText="### ### ####" />
+                                    <TextField fx:id="address" promptText="__ Street, Unit #" />
+                                    <TextField fx:id="favColour" promptText="Colour" />
+                                    <ChoiceBox fx:id="group" prefWidth="150.0" />
+                                 </children>
+                              </VBox>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="38.0" prefWidth="600.0">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#createNewFriend" text="Add new friend!" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children></AnchorPane>
+      </content>
+    </Tab>
+    <Tab text="Friends">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <ListView fx:id="friendsList" layoutX="14.0" layoutY="78.0" onMouseClicked="#displayFriend" prefHeight="280.0" prefWidth="206.0" />
+                  <Label layoutX="80.0" layoutY="14.0" text="Friends">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Label>
+                  <HBox layoutX="222.0" layoutY="51.0" prefHeight="305.0" prefWidth="276.0" spacing="10.0">
+                     <children>
+                        <VBox alignment="TOP_RIGHT" prefHeight="245.0" prefWidth="97.0" spacing="10.0">
+                           <children>
+                              <Label text="Name:" />
+                              <Label text="Email:" />
+                              <Label text="Phone Number:" />
+                              <Label text="Address:" />
+                              <Label text="Favourite Colour:" />
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="300.0" prefWidth="172.0" spacing="10.0">
+                           <children>
+                              <Label fx:id="lblName" text="    " />
+                              <Label fx:id="lblEmail" text="    " />
+                              <Label fx:id="lblPhoneNum" text="    " />
+                              <Label fx:id="lblAddress" text="    " />
+                              <Label fx:id="lblFavColour" text="    " />
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <Label layoutX="311.0" layoutY="14.0" text="Friend Info">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="473.0" layoutY="106.0" mnemonicParsing="false" onAction="#deleteFriend" text="Delete Friend" />
+                  <ChoiceBox fx:id="friendDisplayChoice" layoutX="14.0" layoutY="51.0" prefHeight="26.0" prefWidth="115.0" />
+                  <Button layoutX="129.0" layoutY="51.0" mnemonicParsing="false" onAction="#loadGroup" prefHeight="26.0" prefWidth="91.0" text="Load Group" />
+               </children></AnchorPane>
+      </content>
+    </Tab>
+  </tabs>
+</TabPane>
