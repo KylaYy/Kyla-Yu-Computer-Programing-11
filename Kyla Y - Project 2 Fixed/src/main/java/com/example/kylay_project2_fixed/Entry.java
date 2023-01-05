@@ -26,4 +26,18 @@ public class Entry {
 
     //toString method -----------------------
     public String toString(){return this.entryTitle;}
+    private String allToString(){return this.entryTitle + " - " + this.entry;}
+
+    @Override
+    public boolean equals(Object o){
+        if (o == this) return true;
+        if (!(o instanceof Entry)) return false;
+
+        Entry other = (Entry) o;
+        if (this.allToString().equals(other.allToString())){
+            return true;
+        } else{
+            return false;
+        }
+    }
 }

@@ -1,0 +1,6 @@
+1b|
+test entry|
+[END]
+2b|
+test 2|
+[END]

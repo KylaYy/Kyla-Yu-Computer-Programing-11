@@ -31,4 +31,23 @@ public class Friend {
 
     //To String method
     public String toString(){ return name;}
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == this) return true; // check if the Object we pass is the same as the one we are calling on. ex. s.equals(s)
+        if (!(o instanceof Friend)) return false; // check if o is an object of Friend
+
+        Friend other = (Friend) o;
+
+        if (this.name.equals(other.name) && this.email.equals(other.email) && this.favColour.equals(other.favColour) &&
+                this.group.getGroupName().equals(other.group.getGroupName())) {
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public int hashCode(){
+        return 0;
+    }
 }

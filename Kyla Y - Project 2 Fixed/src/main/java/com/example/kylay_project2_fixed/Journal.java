@@ -30,4 +30,31 @@ public class Journal {
 
     public void addEntry(Entry entry){this.entries.add(entry);}
     public ArrayList<Entry> getEntries() {return entries;}
+    public void setEntries(ArrayList<Entry> entryList){
+        entries = entryList;
+    }
+
+    public String getFileName(){return toString().replaceAll(" ", "") + ".txt";}
+
+    @Override
+    public boolean equals(Object o){
+        if (o == this) return true;
+        if (!(o instanceof Journal)) return false;
+        Journal other = (Journal) o;
+
+        if (this.toString().equals(other.toString())){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    @Override
+    public int hashCode(){
+        return title.length() + authorName.length();
+    }
+
+    @Override
+    public String toString(){return title + " - " + authorName;}
 }

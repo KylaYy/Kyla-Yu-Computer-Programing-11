@@ -9,6 +9,7 @@ import javafx.scene.input.MouseEvent;
 import java.io.*;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.HashSet;
 
 public class FriendsBookController {
 
@@ -35,6 +36,8 @@ public class FriendsBookController {
     //Selected group display
     public Label selectedGroup;
     public TextField loadFileField;
+    
+    public HashSet<Group> groupSet = new HashSet<>();
 
     //IO streams
     FileInputStream in;
@@ -76,7 +79,7 @@ public class FriendsBookController {
         btnSaveFriends.setDisable(false);
 
         tempSelectedGroup = groupView.getSelectionModel().getSelectedItem();
-        ArrayList<Friend> temp = tempSelectedGroup.getFriendList();
+        HashSet<Friend> temp = tempSelectedGroup.getFriendList();
         for (Friend f : temp){
             friendView.getItems().add(f);
         }
@@ -114,8 +117,12 @@ public class FriendsBookController {
 
     public void loadGroup(ActionEvent actionEvent) throws IOException{
         String fileName = loadFileField.getText();
-        groupView.getItems().clear();
+        //groupView.getItems().clear();
         Group group = fileMethods.loadGroup(fileName);
+        if (groupSet.contains(group)){
+            return;
+        }
+        groupSet.add(group);
         groupView.getItems().add(group);
         tempSelectedGroup = group;
         loadFriends();
@@ -123,7 +130,7 @@ public class FriendsBookController {
 
     public void loadFriends() throws IOException{
         friendView.getItems().clear();
-        ArrayList<Friend> friendsFromFile = fileMethods.loadFriends(tempSelectedGroup);
+        HashSet<Friend> friendsFromFile = fileMethods.loadFriends(tempSelectedGroup);
         for( Friend f : friendsFromFile){
             friendView.getItems().add(f);
         }

@@ -5,6 +5,7 @@ import javafx.collections.ObservableList;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.HashSet;
 
 public class fileMethods{
 
@@ -35,14 +36,14 @@ public class fileMethods{
     private static String name;
     private static String email;
     private static String favColour;
-    private static ArrayList<Friend> friendsFromFile = new ArrayList<>();
+    private static HashSet<Friend> friendsFromFile = new HashSet<>();
 
     private static FileReader fr;
     private static BufferedReader br;
 
     public static Group loadGroup(String fileName) throws IOException{
         Group group = new Group(fileName);
-        fr = new FileReader(group.getGroupFile());
+        /*fr = new FileReader(group.getGroupFile());
         br = new BufferedReader(fr);
         String line;
         String friendLine = "";
@@ -54,11 +55,11 @@ public class fileMethods{
                 parseFriend(friendLine, group);
                 friendLine = "";
             }
-        }
+        }*/
         return group;
     }
 
-    public static ArrayList loadFriends(Group group) throws IOException{
+    public static HashSet loadFriends(Group group) throws IOException{
         fr = new FileReader(group.getGroupFile());
         br = new BufferedReader(fr);
         String line;
@@ -77,7 +78,7 @@ public class fileMethods{
 
     private static void parseFriend(String friend, Group group){
         friend = friend.replaceAll(";", "");
-        String[] friendAttributes = friend.split("|");
+        String[] friendAttributes = friend.split("\\|");
 
         String nameTemp = friendAttributes[0];
         String emailTemp = friendAttributes[1];

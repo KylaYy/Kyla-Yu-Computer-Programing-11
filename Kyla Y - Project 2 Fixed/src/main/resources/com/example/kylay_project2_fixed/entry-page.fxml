@@ -7,6 +7,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="435.0" prefWidth="526.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.kylay_project2_fixed.EntryScreenController">
     <children>
@@ -15,12 +16,22 @@
                 <Image url="@openbook.png" />
             </image>
         </ImageView>
-        <Label fx:id="entryDisplaylbl" layoutX="41.0" layoutY="68.0" prefHeight="288.0" prefWidth="240.0" text="   " />
-        <Label fx:id="entryTitleLbl" layoutX="44.0" layoutY="39.0" text="  " />
+        <Label fx:id="entryDisplaylbl" alignment="TOP_LEFT" layoutX="41.0" layoutY="68.0" prefHeight="288.0" prefWidth="240.0" />
+        <Label fx:id="entryTitleLbl" layoutX="44.0" layoutY="39.0">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font></Label>
         <TextArea fx:id="entryInputField" layoutX="311.0" layoutY="138.0" prefHeight="200.0" prefWidth="237.0" />
         <Button layoutX="408.0" layoutY="350.0" mnemonicParsing="false" onAction="#createNewEntry" text="Create!" />
         <Button fx:id="previousEntry" layoutX="79.0" layoutY="364.0" mnemonicParsing="false" onAction="#goToPreviousEntry" text="Previous" />
         <TextField fx:id="entryTitleField" layoutX="311.0" layoutY="106.0" />
         <Button fx:id="nextEntry" layoutX="149.0" layoutY="364.0" mnemonicParsing="false" onAction="#goToNextEntry" text="Next" />
+      <Label fx:id="journalTitle" layoutX="311.0" layoutY="40.0">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="errorLabel" layoutX="311.0" layoutY="79.0" textFill="RED" />
+      <Button layoutX="493.0" layoutY="28.0" mnemonicParsing="false" onAction="#returnToHomescreen" text="Return" />
     </children>
 </AnchorPane>
